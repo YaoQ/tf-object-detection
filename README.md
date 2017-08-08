@@ -107,7 +107,7 @@ vim faster_rcnn_resnet101_voc07.config
       num_readers: 1
     }
 ```
-You can to modify the some paramters in the configuration file accroding to your real dataset.
+You can modify the some parameters in the configuration file according to your real dataset.
 1. label_map_path
 2. input_path
 3. num_steps
@@ -141,12 +141,25 @@ python export_inference_graph.py \
 ls freezed-graph
 checkpoint  frozen_inference_graph.pb  model.ckpt.data-00000-of-00001  model.ckpt.index  model.ckpt.meta  saved_model
 ```
-And the ** frozen_inference_graph.pb** file we cloud deploy to the application.
+And the **frozen_inference_graph.pb** file we cloud deploy to the application.
 
 
-## Run with retrain model file.
+## Run with retrain model file
+You can test the trained model file with jupyter
+```bash
+jupyter notebook
+```
+Then open object_detection_demo.ipynb and run each command line.
+**Note**:
+Also you should change the **PATH_TO_CKPT**.
 
-
+## Test with webcam
+Thanks to [Dat Tan](https://medium.com/towards-data-science/building-a-real-time-object-recognition-app-with-tensorflow-and-opencv-b7a2b4ebdc32) and he create a program which builds a Real-Time Object Recognition App with Tensorflow and OpenCV.  
+```bash
+python webcam-thread.py
+```
+**Note**: 
+1. you have to modify the path of model file in the python script  
 
 ## Ref
 1. [RUN FASTER RCNN USING TENSORFLOW DETECTION API](https://data-sci.info/2017/06/27/run-faster-rcnn-tensorflow-detection-api/)
