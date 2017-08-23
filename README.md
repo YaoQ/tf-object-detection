@@ -161,6 +161,22 @@ python webcam-thread.py
 **Note**: 
 1. you have to modify the path of model file in the python script  
 
+## Bug list
+#### 1. How to fix the bug “Expected "required", "optional", or "repeated".”？
+When I run `protoc object_detection/protos/*.proto --python_out=.`
+The output is:
+    object_detection/protos/anchor_generator.proto:11:3: Expected "required", "optio nal", or "repeated".
+    object_detection/protos/anchor_generator.proto:11:32: Missing field number.
+
+Take the following steps to fix this problem.
+```
+mkdir ~/protoc_3.3
+cd protoc_3.3
+wget https://github.com/google/protobuf/releases/download/v3.3.0/protoc-3.3.0-linux-x86_64.zip
+unzip protoc-3.3.0-linux-x86_64.zip
+cd <tensorflow models>
+~/protoc_3.3/bin/protoc object_detection/protos/*.proto --python_out=.
+```
 ## Ref
 1. [RUN FASTER RCNN USING TENSORFLOW DETECTION API](https://data-sci.info/2017/06/27/run-faster-rcnn-tensorflow-detection-api/)
 2. [Install models of tensorflow](https://github.com/tensorflow/models/blob/master/object_detection/g3doc/installation.md)
